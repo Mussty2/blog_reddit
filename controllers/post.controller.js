@@ -173,9 +173,9 @@ export const dislikePost = async (req, res)=>{
           post.likes = post.likes.filter((id) => id.toString() !== userId.toString());
 
           if (post.dislikes.includes(userId)){
-            post.dislikes = post.dislikes.filter((id) => id.toString() !== useeId.toString())
+            post.dislikes = post.dislikes.filter((id) => id.toString() !== userId.toString())
           }else{
-            post.dislike.push(userId);
+            post.dislikes.push(userId);
           }
 
           await post.save()
