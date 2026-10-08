@@ -19,7 +19,7 @@ export const addComment = async(req, res)=>{
 }
 
 export const getComments = async(req, res)=>{
-    const comments = await Comment.find({ post: req.params.id }).populate("user", "name").sort({ createdAt: -1 })
+    const comments = await Comment.find({ post: req.params.id }).populate("user", "firstname lastname email").sort({ createdAt: -1 })
 
     res.json({ success: true, data: comments})
 }
