@@ -145,7 +145,7 @@ export const likePost = async (req, res)=>{
           post.dislikes = post.dislikes.filter((id) => id.toString() !== userId.toString());
 
           if (post.likes.includes(userId)){
-            post.likes = post.likes.filter((id) => id.toString() !== useeId.toString())
+            post.likes = post.likes.filter((id) => id.toString() !== userId.toString())
           }else{
             post.likes.push(userId);
           }
