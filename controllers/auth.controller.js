@@ -152,7 +152,7 @@ export const login = async (req, res) => {
                 lastSeen: user.lastSeen,
                 
             },
-            token
+            token: token
         });
 
     } catch (err) {
