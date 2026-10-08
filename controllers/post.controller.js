@@ -30,7 +30,7 @@ export const createPost = async (req, res)=>{
 
 export const getAll = async (req, res)=>{
     try {
-       const posts = await Post.find().populate("author", "name email").sort({ createdAt: -1 });
+       const posts = await Post.find().populate("author", "firstname lastname email").sort({ createdAt: -1 });
        const total = posts?.length
        res.json({
         total: total,
