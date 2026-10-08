@@ -129,7 +129,15 @@ export const login = async (req, res) => {
         await user.save();
 
         // Generate token
-        const token = generateToken(user._id, user.role);
+        const token = jwt.sign({
+          id: user._id,
+          role: user.role
+        },
+        process.env.JWT_SECRET,
+      {
+        expiresIn: "7d"
+      }
+)
 
         return res.status(200).json({
             success: true,
@@ -142,8 +150,9 @@ export const login = async (req, res) => {
                 role: user.role,
                 isOnline: user.isOnline,
                 lastSeen: user.lastSeen,
-                token
-            }
+                
+            },
+            token
         });
 
     } catch (err) {
